@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Benhawker\\Pipedrive": "src/"
+            "Ojala\\Pipedrive": "src/"
         }
     },
     "minimum-stability": "dev"
