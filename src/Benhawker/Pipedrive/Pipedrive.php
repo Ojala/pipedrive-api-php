@@ -92,6 +92,8 @@ class Pipedrive
      * @var Products Object
      */
     protected $products;
+    protected $stages;
+    protected $users;
 
     /**
      * Set up API url and load library classes
@@ -123,6 +125,8 @@ class Pipedrive
         $this->dealFields    = new Library\DealFields($this);
         $this->organizations = new Library\Organizations($this);
         $this->products      = new Library\Products($this);
+        $this->stages        = new Library\Stages($this);
+        $this->users         = new Library\Users($this);
     }
 
     /**
@@ -203,5 +207,25 @@ class Pipedrive
     public function products()
     {
         return $this->products;
+    }
+
+    /**
+     * Returns the Pipedrive Stages Object
+     *
+     * @return Stages Object
+     */
+    public function stages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * Returns the Pipedrive Users Object
+     *
+     * @return Users Object
+     */
+    public function users()
+    {
+        return $this->users;
     }
 }

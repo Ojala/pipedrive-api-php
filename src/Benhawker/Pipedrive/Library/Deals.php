@@ -61,6 +61,25 @@ class Deals
     }
 
     /**
+     * Duplicate a deal
+     *
+     * @param  int   $id pipedrive deals id to duplicate
+     * @return array returns detials of the new deal
+     */
+    public function duplicateDeal($id)
+    {
+        return $this->curl->post('deals/' . $id . '/duplicate', array());
+    }
+
+    public function getDeals($start = 0, $limit = 100)
+    {
+        return $this->curl->get('deals', array(
+            'start'=>$start, 
+            'limit'=>$limit, 
+        ));
+    }
+
+    /**
      * Lists products associated with a deal.
      *
      * @param  array $data (id, start, limit)

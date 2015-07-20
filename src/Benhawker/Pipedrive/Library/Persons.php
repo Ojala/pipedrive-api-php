@@ -28,6 +28,20 @@ class Persons
     }
 
     /**
+     * Get all Persons
+     *
+     * @return array returns with all Persons
+     */
+    public function getPersons($start = 0, $limit = 100, $filter_id = 1)
+    {
+        return $this->curl->get('persons', array(
+            'start'=>$start, 
+            'limit'=>$limit, 
+            'filter_id'=>$filter_id
+        ));
+    }
+
+    /**
      * Returns a person
      *
      * @param  int   $id pipedrive persons id
@@ -79,6 +93,22 @@ class Persons
         }
 
         return $this->curl->get('persons/' . $data['id'] . '/products');
+    }
+
+    /**
+     * Lists activities associated with a person.
+     *
+     * @param  array $data (id, start, limit)
+     * @return array activities
+     */
+    public function activities(array $data)
+    {
+        //if there is no name set throw error as it is a required field
+        if (!isset($data['id'])) {
+            throw new PipedriveMissingFieldError('You must include the "id" of the person when getting activities');
+        }
+
+        return $this->curl->get('persons/' . $data['id'] . '/activities');
     }
 
     /**
