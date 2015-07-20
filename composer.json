@@ -12,7 +12,9 @@
     },
     "autoload": {
         "psr-0": {
-            "Ojala\\Pipedrive": "src/"
+            "Ojala\\Pipedrive": "/"
+            
+            
         }
     },
     "minimum-stability": "dev"
