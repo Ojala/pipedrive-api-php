@@ -45,4 +45,38 @@ class Activities
 
         return $this->curl->post('activities', $data);
     }
+
+    /**
+     * Returns an activity
+     *
+     * @param  int   $id pipedrive activities id
+     * @return array returns detials of a activity
+     */
+    public function getById($id)
+    {
+        return $this->curl->get('activities/' . $id);
+    }
+
+    /**
+     * Returns an activity
+     *
+     * @param  int   $id pipedrive activities id
+     * @return array returns detials of a activity
+     */
+    public function getByUser($data)
+    {
+        return $this->curl->get('activities', $data);
+    }
+
+    /**
+     * Updates an activity
+     *
+     * @param  int   $activityId pipedrives activity Id
+     * @param  array $data   new detials of activity
+     * @return array returns detials of a activity
+     */
+    public function update($activityId, array $data = array())
+    {
+        return $this->curl->put('activities/' . $activityId, $data);
+    }
 }
