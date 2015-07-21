@@ -144,7 +144,8 @@ class Curl
         //if http error throw exception
         if (floor($info['http_code'] / 100) >= 4) {
             //throw error
-            throw new PipedriveApiError('API HTTP Error ' . $info['http_code'] . '. Message ' . $result['error']);
+            $error = isset($result['error']) ? $result['error'] : '';
+            throw new PipedriveApiError('API HTTP Error ' . $info['http_code'] . '. Message ' . $error);
         }
         // return output
         return $result;
