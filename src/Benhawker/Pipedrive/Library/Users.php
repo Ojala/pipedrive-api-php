@@ -15,7 +15,7 @@ class Users
 	/**
 	 * Initialise the object load master class
 	 */
-	public function __construct(Pipedrive $master)
+	public function __construct(\Benhawker\Pipedrive\Pipedrive $master)
 	{
 		//associate curl class
 		$this->curl = $master->curl();

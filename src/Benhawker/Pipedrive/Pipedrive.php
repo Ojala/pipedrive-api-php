@@ -127,7 +127,7 @@ class Pipedrive
         $this->products      = new Library\Products($this);
         $this->stages        = new Library\Stages($this);
         $this->users         = new Library\Users($this);
-
+      
     }
 
     /**
